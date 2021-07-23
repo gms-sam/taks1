@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:taks1/CreateAccount2.dart';
 import 'package:taks1/SignIn.dart';
-import 'package:taks1/Successfull.dart';
 import 'package:taks1/main.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -301,18 +299,23 @@ class _CreateAccountState extends State<CreateAccount> {
                     }
                   }
                 },
-                child: Container(
-                  child: Center(
-                    child: Text(
-                      "Next",
-                      style: TextStyle(fontSize: 20),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateAccount2()));
+                  },
+                                  child: Container(
+                    child: Center(
+                      child: Text(
+                        "Next",
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
+                    height: MediaQuery.of(context).size.height / 15,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.grey),
                   ),
-                  height: MediaQuery.of(context).size.height / 15,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.grey),
                 ),
               ),
             )
